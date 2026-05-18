@@ -1,0 +1,158 @@
+body {
+    font-family: 'Outfit', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6;
+    color: #333;
+}
+
+.admin-navbar {
+    background: #111;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.admin-navbar h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.admin-navbar span {
+    color: #f39c12;
+}
+
+.admin-dashboard {
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.admin-dashboard h2 {
+    margin-top: 0;
+    color: #2c3e50;
+    font-size: 2rem;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 2rem;
+}
+
+.orders-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1.5rem;
+}
+
+.order-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.05);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    border-top: 5px solid #2980b9;
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+.order-id {
+    font-weight: 800;
+    font-size: 1.3rem;
+    color: #2980b9;
+}
+
+.order-total {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #27ae60;
+}
+
+.order-customer p {
+    margin: 0.3rem 0;
+    font-size: 0.95rem;
+}
+
+.order-items {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    flex-grow: 1;
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.order-items li {
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95rem;
+}
+
+.timer-section {
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.progress-container {
+    background: #e0e0e0;
+    border-radius: 20px;
+    height: 12px;
+    width: 100%;
+    margin-top: 0.5rem;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background: #2ecc71;
+    height: 100%;
+    width: 100%;
+    transition: width 1s linear, background-color 1s ease;
+    border-radius: 20px;
+}
+
+.progress-bar.warning {
+    background: #f1c40f;
+}
+
+.progress-bar.danger {
+    background: #e74c3c;
+}
+
+.time-left {
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.btn-complete {
+    display: block;
+    width: 100%;
+    margin-top: 1rem;
+    padding: 10px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-complete:hover {
+    background-color: #2ecc71;
+}
