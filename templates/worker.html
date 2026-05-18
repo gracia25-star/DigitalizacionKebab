@@ -15,12 +15,13 @@
 
         body {
             font-family: 'Outfit', sans-serif;
-            background: #f5f5f5;
+            background: #ffffff;
+            color: #003366;
             min-height: 100vh;
         }
 
         .navbar {
-            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            background: #e60000;
             color: white;
             padding: 20px 40px;
             display: flex;
@@ -52,7 +53,7 @@
 
         .btn-logout {
             background: white;
-            color: #ff6b35;
+            color: #e60000;
             padding: 8px 20px;
             border: none;
             border-radius: 5px;
@@ -76,16 +77,16 @@
         }
 
         .header h2 {
-            color: #333;
+            color: #003366;
             margin-bottom: 10px;
         }
 
         .header p {
-            color: #666;
+            color: #4d79ff;
         }
 
         .add-product-btn {
-            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            background: #e60000;
             color: white;
             padding: 12px 30px;
             border: none;
@@ -99,7 +100,7 @@
 
         .add-product-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(255, 107, 53, 0.3);
+            box-shadow: 0 5px 20px rgba(230, 0, 0, 0.3);
         }
 
         .products-grid {
@@ -148,7 +149,7 @@
         }
 
         .product-info h3 {
-            color: #333;
+            color: #003366;
             margin-bottom: 8px;
             font-size: 18px;
         }
@@ -168,13 +169,13 @@
         }
 
         .product-price {
-            color: #ff6b35;
+            color: #e60000;
             font-weight: 600;
             font-size: 18px;
         }
 
         .product-description {
-            color: #666;
+            color: #4d79ff;
             font-size: 13px;
             margin-bottom: 15px;
             line-height: 1.4;
@@ -264,7 +265,7 @@
         }
 
         .modal-header h2 {
-            color: #333;
+            color: #003366;
             font-size: 22px;
         }
 
@@ -288,7 +289,7 @@
         label {
             display: block;
             margin-bottom: 8px;
-            color: #333;
+            color: #003366;
             font-weight: 600;
             font-size: 14px;
         }
@@ -305,7 +306,7 @@
 
         input:focus, textarea:focus, select:focus {
             outline: none;
-            border-color: #ff6b35;
+            border-color: #e60000;
         }
 
         textarea {
@@ -338,7 +339,7 @@
 
         .file-input-label:hover {
             background: #f0f0f0;
-            border-color: #ff6b35;
+            border-color: #e60000;
         }
 
         .file-preview {
@@ -365,7 +366,7 @@
         .btn-save {
             flex: 1;
             padding: 14px;
-            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            background: #e60000;
             color: white;
             border: none;
             border-radius: 6px;
@@ -454,9 +455,9 @@
         }
 
         .tab-btn.active {
-            color: #ff6b35;
-            border-bottom: 3px solid #ff6b35;
-            background: rgba(255, 107, 53, 0.1);
+            color: #e60000;
+            border-bottom: 3px solid #e60000;
+            background: rgba(230, 0, 0, 0.1);
         }
 
         .tab-btn:hover:not(.active) {
@@ -480,20 +481,20 @@
         }
 
         .order-card {
-            background: white;
+            background: #f8f9fa;
             border-radius: 12px;
             box-shadow: 0 8px 15px rgba(0,0,0,0.05);
             padding: 1.5rem;
             display: flex;
             flex-direction: column;
-            border-top: 5px solid #2980b9;
+            border-top: 5px solid #003366;
         }
 
         .order-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #ddd;
             padding-bottom: 1rem;
             margin-bottom: 1rem;
         }
@@ -501,13 +502,13 @@
         .order-id {
             font-weight: 800;
             font-size: 1.3rem;
-            color: #2980b9;
+            color: #003366;
         }
 
         .order-total {
             font-weight: bold;
             font-size: 1.2rem;
-            color: #27ae60;
+            color: #e60000;
         }
 
         .order-customer p {
@@ -575,7 +576,7 @@
             width: 100%;
             margin-top: 1rem;
             padding: 10px;
-            background-color: #27ae60;
+            background-color: #003366;
             color: white;
             border: none;
             border-radius: 6px;
@@ -586,7 +587,7 @@
         }
 
         .btn-complete:hover {
-            background-color: #2ecc71;
+            background-color: #e60000;
         }
     </style>
 </head>
@@ -598,7 +599,7 @@
             <h1>MEGA<span>DÖNER KEBAB</span> - Panel de Trabajador</h1>
         </div>
         <div class="nav-actions">
-            <div class="user-info">👤 {{ username }}</div>
+            <div class="user-info">👨‍🍳 {{ username }}</div>
             <button class="btn-logout" onclick="window.location.href='{{ url_for('logout_admin') }}'">
                 Cerrar Sesión
             </button>
@@ -608,8 +609,8 @@
     <!-- Main Content -->
     <div class="container">
         <div class="tabs">
-            <button class="tab-btn active" onclick="showTab('orders')">📦 Pedidos</button>
-            <button class="tab-btn" onclick="showTab('products')">🍔 Productos</button>
+            <button class="tab-btn active" onclick="showTab('orders')">🧾 Pedidos</button>
+            <button class="tab-btn" onclick="showTab('products')">🌯 Productos</button>
         </div>
 
         <div id="orders-tab" class="tab-content active">
