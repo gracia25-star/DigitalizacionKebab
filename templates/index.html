@@ -16,18 +16,6 @@
             <h1>MEGA<span>DÖNER KEBAB</span></h1>
         </div>
         <div style="display: flex; gap: 15px; align-items: center;">
-            {% if user_id %}
-                <div style="background: rgba(255,255,255,0.2); padding: 8px 15px; border-radius: 5px; font-size: 14px;">
-                    👤 {{ username }}
-                </div>
-                <a href="{{ url_for('logout') }}" style="background: white; color: #ff6b35; padding: 8px 20px; border-radius: 5px; text-decoration: none; font-weight: 600; cursor: pointer;">
-                    Cerrar Sesión
-                </a>
-            {% else %}
-                <a href="{{ url_for('login') }}" style="background: rgba(255,255,255,0.2); color: white; padding: 8px 20px; border-radius: 5px; text-decoration: none; font-weight: 600; cursor: pointer;">
-                    Iniciar Sesión
-                </a>
-            {% endif %}
             <div class="cart-icon" id="cart-toggle">
                 🛒 <span id="cart-count">0</span>
             </div>
@@ -53,10 +41,13 @@
             <div class="grid-container">
                 {% for product in products %}
                 <div class="product-card">
-                    <!-- The user will add images here later -->
+                    {% if product.image_path %}
+                    <img src="{{ url_for('static', filename=product.image_path) }}" alt="{{ product.name }}" style="width: 100%; height: 200px; object-fit: cover;">
+                    {% else %}
                     <div class="product-image-placeholder">
                         <span>Imagen: {{ product.name }}</span>
                     </div>
+                    {% endif %}
                     <div class="product-info">
                         <h4>{{ product.name }}</h4>
                         <p>{{ product.description }}</p>

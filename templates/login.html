@@ -241,7 +241,7 @@
 
                     // Redirigir según el rol
                     if (data.role === 'trabajador') {
-                        setTimeout(() => window.location.href = '{{ url_for('worker_panel') }}', 1500);
+                        setTimeout(() => window.location.href = 'http://localhost:5001/', 1500);
                     } else {
                         setTimeout(() => window.location.href = '{{ url_for('index') }}', 1500);
                     }

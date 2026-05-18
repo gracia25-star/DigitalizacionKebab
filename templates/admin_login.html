@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro - Mega Döner Kebab</title>
+    <title>Login Trabajador - Mega Döner Kebab</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         * {
@@ -23,11 +23,11 @@
             padding: 20px;
         }
 
-        .register-container {
+        .login-container {
             background: white;
             border-radius: 15px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            max-width: 450px;
+            max-width: 400px;
             width: 100%;
             padding: 40px;
             animation: slideIn 0.5s ease;
@@ -44,20 +44,31 @@
             }
         }
 
-        .register-header {
+        .login-header {
             text-align: center;
             margin-bottom: 30px;
         }
 
-        .register-header h1 {
+        .login-header h1 {
             color: #ff6b35;
             font-size: 28px;
             margin-bottom: 10px;
         }
 
-        .register-header p {
+        .login-header p {
             color: #666;
             font-size: 14px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #ffebee;
+            color: #d32f2f;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-top: 10px;
+            font-weight: 600;
         }
 
         .form-group {
@@ -71,7 +82,7 @@
             font-weight: 600;
         }
 
-        input, select {
+        input {
             width: 100%;
             padding: 12px 15px;
             border: 2px solid #ddd;
@@ -81,22 +92,12 @@
             transition: border-color 0.3s;
         }
 
-        input:focus, select:focus {
+        input:focus {
             outline: none;
             border-color: #ff6b35;
         }
 
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-
-        .form-row .form-group {
-            margin-bottom: 0;
-        }
-
-        .btn-register {
+        .btn-login {
             width: 100%;
             padding: 14px;
             background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
@@ -110,33 +111,13 @@
             margin-top: 10px;
         }
 
-        .btn-register:hover {
+        .btn-login:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 20px rgba(255, 107, 53, 0.3);
         }
 
-        .divider {
-            text-align: center;
-            margin: 25px 0;
-            color: #ccc;
-            font-size: 14px;
-        }
-
-        .btn-login {
-            width: 100%;
-            padding: 14px;
-            background: white;
-            color: #ff6b35;
-            border: 2px solid #ff6b35;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .btn-login:hover {
-            background: #fff5f0;
+        .btn-login:active {
+            transform: translateY(0);
         }
 
         .error-message {
@@ -159,15 +140,6 @@
             font-size: 14px;
         }
 
-        .role-description {
-            background: #f5f5f5;
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 12px;
-            color: #666;
-            margin-top: 5px;
-        }
-
         .spinner {
             display: none;
             border: 3px solid #f3f3f3;
@@ -183,94 +155,70 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+
+        .info-box {
+            background: #f5f5f5;
+            border-left: 4px solid #ff6b35;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .info-box strong {
+            display: block;
+            color: #333;
+            margin-bottom: 8px;
+        }
     </style>
 </head>
 
 <body>
-    <div class="register-container">
-        <div class="register-header">
+    <div class="login-container">
+        <div class="login-header">
             <h1>MEGA<span style="color: #f7931e;">DÖNER</span></h1>
-            <p>Crea tu cuenta</p>
+            <p>Panel de Trabajadores</p>
+            <span class="badge">🔒 ACCESO RESTRINGIDO</span>
+        </div>
+
+        <div class="info-box">
+            <strong>Usuarios de prueba:</strong>
+            Usuario: trabajador_demo<br>
+            Contraseña: trabajador123
         </div>
 
         <div class="error-message" id="error-message"></div>
         <div class="success-message" id="success-message"></div>
 
-        <form id="register-form">
+        <form id="login-form">
             <div class="form-group">
                 <label for="username">Usuario</label>
-                <input type="text" id="username" name="username" required minlength="3">
-            </div>
-
-            <div class="form-group">
-                <label for="email">Correo Electrónico</label>
-                <input type="email" id="email" name="email">
+                <input type="text" id="username" name="username" placeholder="trabajador_demo" required>
             </div>
 
             <div class="form-group">
                 <label for="password">Contraseña</label>
-                <input type="password" id="password" name="password" required minlength="6">
+                <input type="password" id="password" name="password" placeholder="trabajador123" required>
             </div>
 
-            <div class="form-group">
-                <label for="confirm-password">Confirmar Contraseña</label>
-                <input type="password" id="confirm-password" name="confirm-password" required minlength="6">
-            </div>
-
-            <div class="form-group">
-                <label for="role">¿Qué tipo de usuario eres?</label>
-                <select id="role" name="role" required onchange="updateRoleDescription()">
-                    <option value="cliente">Cliente - Hacer pedidos</option>
-                    <option value="trabajador">Trabajador - Gestionar productos</option>
-                </select>
-                <div class="role-description" id="role-description">
-                    Podrás hacer pedidos y ver el menú disponible
-                </div>
-            </div>
-
-            <button type="submit" class="btn-register">
-                <span id="btn-text">Crear Cuenta</span>
+            <button type="submit" class="btn-login">
+                <span id="btn-text">Iniciar Sesión</span>
                 <div class="spinner" id="spinner"></div>
             </button>
         </form>
-
-        <div class="divider">¿Ya tienes cuenta?</div>
-
-        <button type="button" class="btn-login" onclick="window.location.href='{{ url_for('login') }}'">
-            Iniciar Sesión
-        </button>
     </div>
 
     <script>
-        function updateRoleDescription() {
-            const role = document.getElementById('role').value;
-            const description = document.getElementById('role-description');
-
-            if (role === 'trabajador') {
-                description.textContent = 'Podrás agregar, editar, eliminar productos y cambiar sus imágenes';
-            } else {
-                description.textContent = 'Podrás hacer pedidos y ver el menú disponible';
-            }
-        }
-
-        document.getElementById('register-form').addEventListener('submit', async function(e) {
+        document.getElementById('login-form').addEventListener('submit', async function(e) {
             e.preventDefault();
 
             const username = document.getElementById('username').value;
-            const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
-            const confirmPassword = document.getElementById('confirm-password').value;
-            const role = document.getElementById('role').value;
             const spinner = document.getElementById('spinner');
             const btnText = document.getElementById('btn-text');
             const errorMsg = document.getElementById('error-message');
             const successMsg = document.getElementById('success-message');
-
-            if (password !== confirmPassword) {
-                errorMsg.textContent = 'Las contraseñas no coinciden';
-                errorMsg.style.display = 'block';
-                return;
-            }
 
             spinner.style.display = 'block';
             btnText.style.display = 'none';
@@ -278,33 +226,25 @@
             successMsg.style.display = 'none';
 
             try {
-                const response = await fetch('{{ url_for('register') }}', {
+                const response = await fetch('/login', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
                         username: username,
-                        email: email,
-                        password: password,
-                        role: role
+                        password: password
                     })
                 });
 
                 const data = await response.json();
 
                 if (response.ok) {
-                    successMsg.textContent = '¡Cuenta creada! Redirigiendo...';
+                    successMsg.textContent = '¡Bienvenido! Redirigiendo...';
                     successMsg.style.display = 'block';
-
-                    // Redirigir según el rol
-                    if (data.role === 'trabajador') {
-                        setTimeout(() => window.location.href = 'http://localhost:5001/', 1500);
-                    } else {
-                        setTimeout(() => window.location.href = '{{ url_for('index') }}', 1500);
-                    }
+                    setTimeout(() => window.location.href = '/', 1500);
                 } else {
-                    errorMsg.textContent = data.error || 'Error al registrarse';
+                    errorMsg.textContent = data.error || 'Error al iniciar sesión';
                     errorMsg.style.display = 'block';
                 }
             } catch (error) {
